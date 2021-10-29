@@ -88,6 +88,37 @@ public class Test {
 			return "Received negatives:"+neg;
 
 	}
+	
+	public static String add1(String numbers){
+		Boolean flag=true;
+		int sum=0;
+		String neg="";
+		numbers=numbers.replace(";", ",");
+		numbers=numbers.replace("\n", ",");
+
+		String[] temp=numbers.split(",");
+		for(int i=0;i<temp.length;i++){
+			try{
+				int x=Integer.parseInt(temp[i]);
+				if(x<0){
+					flag=false;
+					neg+=x;
+					}
+				sum+=x;
+			}catch(NumberFormatException e){
+				sum=0;
+			}
+			catch(Exception e){
+
+			}
+		}
+
+		if(flag)
+			return "total sum:"+sum;
+		else
+			return "Received negatives:"+neg;
+
+	}
 
 	public static String[] joinarrays(String[] s1,String[] s2){
 
